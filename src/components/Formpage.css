@@ -1,0 +1,130 @@
+body{
+    border-spacing: box-spacing;
+    margin:auto;
+    padding:auto;
+    font-family: sans-serif;
+  background-color: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.fb-forgot a{
+    text-decoration: none;
+    font-size: 11px;
+    color: #003569;
+}
+.container{
+    max-width: 1000px;
+    margin: 50px auto;
+    padding:5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    border-spacing: box-spacing;
+    font-family: sans-serif;
+  background-color: #fafafa;
+}
+.heading{
+    margin: 22px auto 12px;
+    background-image: url("https://www.instagram.com/static/bundles/es6/sprite_core_b20f2a3cd7e4.png/b20f2a3cd7e4.png");
+    background-position: -98px 0;
+    height: 51px;
+    width: 177px;
+    overflow: hidden;
+}
+.inputfield,.formbody,.separator,.fb-forgot,.signup{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:5px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+}
+.separator{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #999;
+    margin-top: 5px;
+    margin-bottom: 0px;;
+}
+
+.fb-forgot{
+    display: flex;
+    flex-direction: column;
+}
+.fb-forgot a{
+    font-size: 12px;
+}
+.signup a{
+    color:blue;
+    cursor: pointer;
+}
+.formbody,.signup{
+    border: 1px solid #e6e6e6;
+    background-color: #ffff;
+    border-radius: 3px;
+}
+.inputfield{
+    border-radius: 5px;
+    text-overflow: ellipsis;
+}
+.signup a{
+    color: #3897f0;
+    font-weight: 600;
+}
+input{
+    width: 16rem;
+    height: 1.2rem;
+    padding:5px;
+    border: 0.5px solid #fafafa;;
+    background-color:#fafafa; ;
+
+}
+
+.login{
+    width: 16.5rem;
+    height: 1.6rem;  
+    color:aliceblue;
+    border: 1px solid transparent;
+    background-color: #3897f0;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.formbody,.signup{
+    width:300px;
+}
+.signup{
+    padding:8px;
+    margin-top:8px;
+}
+
+
+.fb-login-btn {
+    margin-top: 0px;
+    margin: 1rem;
+    border: 0;
+    cursor: pointer;
+    font-size: 14px;
+    color: #385185;
+    font-weight: 600;
+    background: transparent;
+  }
+  
+  .fb-icon {
+    color: #385185;
+    font-size: 1rem;
+    padding-right: 1px;
+  }
+.separator .line{
+  height: 1px;
+  width: 8rem;;
+  background-color: #dbdbdb;
+}
