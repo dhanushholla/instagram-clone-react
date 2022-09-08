@@ -45,6 +45,7 @@ body{
 }
 .separator{
     flex-direction: row;
+    width:100%;
     justify-content: space-between;
     align-items: center;
     color: #999;
@@ -125,6 +126,8 @@ input{
   }
 .separator .line{
   height: 1px;
-  width: 8rem;;
+  /* width: 7rem; */
+  width: 40%;
   background-color: #dbdbdb;
+  margin: .5rem;
 }

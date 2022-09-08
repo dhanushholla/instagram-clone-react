@@ -1,0 +1,11 @@
+.new-form{
+    display: flex;
+    flex-direction: column;   
+    justify-content: flex-start;
+    gap:20px;
+    border:2px solid black;
+}
+.new-form div{
+    margin:12px;padding:13px;
+    
+}
