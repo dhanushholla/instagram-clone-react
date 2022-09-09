@@ -80,8 +80,8 @@ body{
 input{
     width: 16rem;
     height: 1.2rem;
-    padding:5px;
-    border: 0.5px solid #fafafa;;
+    padding:20px;
+    border: 1px solid rgb(188, 202, 216);
     background-color:#fafafa; ;
 
 }
@@ -130,4 +130,14 @@ input{
   width: 40%;
   background-color: #dbdbdb;
   margin: .5rem;
+}
+.download-btn-icons{
+    padding:2px;
+    display: flex;
+    flex-direction: row;
+    margin-top:5px;
+    gap:15px;
+}
+.download-btn-icons img{
+    width:140px;
 }

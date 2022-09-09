@@ -63,8 +63,12 @@ class Modal extends Component {
 
   render() {
     return (
-    <React.Fragment><div className='result'>
+    <React.Fragment>
+      <div className='result'>
+      <nav className='navbar'>
+      <div className='logobanner'></div>
       <Link to="/"><button className='logoutbtn'>Logout</button></Link>
+      </nav>
        { this.state.postdatas.map(
         (post)=>(<Post name={post.username} image={post.mainimage} caption={post.caption} profilepic={post.profilepic}></Post>)
         )
