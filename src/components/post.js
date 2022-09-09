@@ -7,8 +7,39 @@ class Post extends Component {
   //   let newdata=document.createElement("div");
   //   newdata.innerText=data;
   //   comments.appendChild(newdata);
+  //   document.getElementById("new-comment").value="";
   // }
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       follow:false,
+       comments:[],
+       newcommentinput:""
+
+    }
+  }
+  handlenewcommentInput=(e)=>{
+    
+    this.setState({
+      newcommentinput:e.target.value
+    })
+  }
+  
+  handlenewcomment=()=>{
+    this.setState({
+      comments:[...this.state.comments, this.state.newcommentinput],
+      newcommentinput:""
+    })
+    
+  }
+ 
+  handleFollow=()=>{
+    this.setState({follow:!this.state.follow})
+  }
   render(props) {
+    console.log(this.state)
+
     return (
       <div>
             <div class="postwrapper">
@@ -17,7 +48,9 @@ class Post extends Component {
                 <div><img src={this.props.profilepic}alt="img here"/></div>
                 <div><p>{this.props.name}</p></div>
             </div>
-            <div class="followwrapper"><button >Follow</button></div>
+              { this.state.follow?
+                <div class="followwrapper"><button onClick={this.handleFollow}>Unfollow</button></div>:<div class="followwrapper"><button onClick={this.handleFollow}>follow</button></div>
+              }
         </div>
         <div class="imagewrapper">
           <img src={this.props.image}  alt="post pic here"/></div>
@@ -31,9 +64,18 @@ class Post extends Component {
             <img src="https://cdn-icons-png.flaticon.com/128/5662/5662990.png"  alt="saveicon"/> 
             </div>
             </div>
-    <div class="comments" id="comments">{this.props.caption}</div>
+    <div className="comments" id="comments">{this.props.caption}</div>
+    <div className='comment-updater'>
+    {
+      this.state.comments &&
+      this.state.comments.map((comment)=>{
+         return (<div>commentername:{comment}</div>)
+      })
+    }
+    </div>
+    
     <div class="comment-wrapper">
-        <div class="addcommentwrapper"> <textarea id="new-comment"placeholder="add comments!"></textarea></div>
+        <div class="addcommentwrapper"> <input type="text" id="new-comment"placeholder="add comments!" value={this.state.newcommentinput} onChange={this.handlenewcommentInput}></input></div>
         <button class="addcomment" onClick={this.handlenewcomment}>Add Comment</button>
     </div>
     </div>        

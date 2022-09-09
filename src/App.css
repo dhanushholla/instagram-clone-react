@@ -41,4 +41,40 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+ 
 }
+/* .App-dark{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color:white; 
+}
+.App .toggler{
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid seagreen;
+  border-radius: 0.6em;
+  color:black;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 10px;
+  padding: 1.2em 0.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  float:inherit;
+}
+.App .toggler:hover{
+  box-shadow: 0 0 40px 40px black inset; 
+  color:white;
+  border:2px solid lime;
+} */

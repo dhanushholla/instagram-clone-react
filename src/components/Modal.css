@@ -1,4 +1,5 @@
 .new-form{
+    margin-top: 10px;
     display: flex;
     flex-direction: column;   
     justify-content: flex-start;
@@ -7,5 +8,79 @@
 }
 .new-form div{
     margin:12px;padding:13px;
-    
+}
+.new-form input{
+   border:1px solid aquamarine;
+   border-radius: 10px;
+   padding:20px;
+   display:flex;
+}
+.new-form button[type="submit"]{
+    color:black;
+    background-color: white;
+    border:5px solid aquamarine;
+    border-radius: 10px; 
+}
+.new-form button{
+    color:black;
+    background-color: white;
+    border:5px solid aquamarine;
+    border-radius: 10px; 
+    margin:15px;
+}
+.new-form button[type="submit"]:hover{
+    background-color: green;
+    color:white;
+    border:1px solid aquamarine;
+    transform: scale(1.5);
+    border-radius: 10px;
+}
+.new-form button:hover{
+    background-color: red;
+    color:black;
+    border:1px solid snow;
+    transform: scale(1.5);
+    border-radius: 10px;
+}
+.addpostbtn {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid aquamarine;
+    border-radius: 0.6em;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    /* margin: 20px; */
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    float:inherit;
+    margin-bottom: 10px;;
+  }
+  .addpostbtn:hover{
+    box-shadow: 0 0 40px 40px green inset; 
+    color:white;
+  }
+
+.result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logoutbtn{
+    padding:0.5rem;
+    margin:1rem;
+    float:right;
+    background-repeat: no-repeat;
+}
+.logoutbtn:hover{
+        box-shadow: 0 0 10px 0 #e74c3c inset, 0 0 10px 4px #e7437c;
 }
