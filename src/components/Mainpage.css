@@ -122,3 +122,14 @@
     display:flex;
     flex-direction: column-reverse;
 }
+.footer-navbar{
+    width:90vw;
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    background-color:#e6e6e6 ;
+    padding:1rem;
+    margin-top:1rem;
+    border-radius: 15px;
+}

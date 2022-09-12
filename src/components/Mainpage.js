@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Post from './post'
 import './Mainpage.css'
 import {Link} from 'react-router-dom'
+import {FaHome, FaSearch, FaShoppingBag} from 'react-icons/fa'
+import {BsPersonCircle} from 'react-icons/bs'
+import {BiMoviePlay} from 'react-icons/bi'
 // import {toast} from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 // toast.configure()
@@ -85,6 +88,14 @@ class Mainpage extends Component {
         )
        }
       </div>
+      <nav className='footer-navbar'>
+       <FaHome></FaHome>
+       <FaSearch></FaSearch>
+       <BiMoviePlay></BiMoviePlay>
+       <FaShoppingBag/>
+       <BsPersonCircle/>
+
+      </nav>
       </div>
       {
         this.state.showform &&
