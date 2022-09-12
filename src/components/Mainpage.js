@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import Post from './post'
-import './Modal.css'
+import './Mainpage.css'
 import {Link} from 'react-router-dom'
+// import {toast} from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// toast.configure()
 
-let newcaption="",newimage=""
-class Modal extends Component {
+let newcaption="",newimage="",newcomment=[""]
+class Mainpage extends Component {
   constructor(props) {
     super(props);
   this.state = {
@@ -20,7 +23,7 @@ class Modal extends Component {
     {
       profilepic:"https://images.unsplash.com/photo-1610276198568-eb6d0ff53e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG90cmFpdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", 
       username:"Anu",
-      caption:"pennae pennae undhan kayil naanum",
+      caption:"pennae pennae!!  ",
       mainimage:"https://images.unsplash.com/photo-1463062511209-f7aa591fa72f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGxhbmRzY2FwZSUyMGdpcmx8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
      
     },
@@ -56,9 +59,12 @@ class Modal extends Component {
       e.preventDefault();
       console.log("state is changed");
       this.setState({       
-        postdatas:[{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:"tester",caption:newcaption,mainimage:newimage},...this.state.postdatas,],
+        // postdatas:[{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:"tester",caption:newcaption,mainimage:newimage,comments:newcomment},...this.state.postdatas,],
+        postdatas:[...this.state.postdatas,{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:"tester",caption:newcaption,mainimage:newimage,comments:newcomment}], 
         showform:false
       })
+      window.scrollTo(0,0);
+
     } 
 
   render() {
@@ -66,14 +72,16 @@ class Modal extends Component {
     <React.Fragment>
       <div className='result'>
       <nav className='navbar'>
-      <div className='logobanner'></div>
-      <Link to="/"><button className='logoutbtn'>Logout</button></Link>
+      <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png" alt="logo"></img>
+      <button onClick={this.handleAddpost} className="addpostbtn">add post</button>
+      <Link to="/" className='Linkcls'><button className='logoutbtn'>Logout</button></Link>
       </nav>
+      <div className='feedposts'>
        { this.state.postdatas.map(
         (post)=>(<Post name={post.username} image={post.mainimage} caption={post.caption} profilepic={post.profilepic}></Post>)
         )
        }
-       <button onClick={this.handleAddpost} className="addpostbtn">add post</button>
+      </div>
       </div>
       {
         this.state.showform &&
@@ -82,11 +90,11 @@ class Modal extends Component {
                 <form>
                 <div>
                 <label>Newpost-Caption:</label>
-                  <input type="text" placeholder="enter caption" onChange={this.handlenewCaption}/>
+                  <input type="text" placeholder="enter caption" onChange={this.handlenewCaption} autoFocus required/>
                   </div>
                   <div className='new-imageupload'>
                   <label>NewImage:</label>
-                  <input type="file" onChange={this.handlenewImage}></input>
+                  <input type="file" onChange={this.handlenewImage} required></input>
                   </div>
                   <div>
                   <button type='submit' onClick={this.handlenewpost}>upload post</button>
@@ -95,7 +103,6 @@ class Modal extends Component {
                 </form>
             </div>
         )
-      
       }
       </React.Fragment>
 
@@ -103,4 +110,4 @@ class Modal extends Component {
   }
 }
 
-export default Modal
+export default Mainpage

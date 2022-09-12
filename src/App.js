@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import FormPage from './components/Formpage';
 import Post from './components/post';
-import Modal from './components/Modal';
 import React, { Component } from 'react';
 import {
   BrowserRouter,
@@ -10,6 +9,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Mainpage from './components/Mainpage';
+
 
 class App extends Component {
    
@@ -20,7 +21,7 @@ class App extends Component {
           <Route path="/" element={<FormPage/>}>
           </Route>
             
-          <Route path="/feed" element = {<Modal/>} >
+          <Route path="/feed" element = {<Mainpage/>} >
           </Route>
         </Routes>
         </div> 

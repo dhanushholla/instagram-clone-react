@@ -46,23 +46,18 @@
     appearance: none;
     background-color: transparent;
     border: 2px solid aquamarine;
-    border-radius: 0.6em;
+    border-radius: 5px;
     color: black;
     cursor: pointer;
     display: flex;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    /* margin: 20px; */
-    padding: 1.2em 2.8em;
+    padding: 1rem;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
     float:inherit;
-    margin-bottom: 10px;;
+    margin:0.5rem;
   }
   .addpostbtn:hover{
     box-shadow: 0 0 40px 40px green inset; 
@@ -76,22 +71,38 @@
     align-items: center;
 }
 .logoutbtn{
-    padding:0.5rem;
-    margin:1rem;
-    float:right;
-    background-repeat: no-repeat;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid aquamarine;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    padding: 1rem;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    float:inherit;
+    margin:0.5rem;
+}
+.Linkcls{
+    text-decoration: none;
 }
 .logoutbtn:hover{
-        box-shadow: 0 0 10px 0 #e74c3c inset, 0 0 10px 4px #e7437c;
+        /* box-shadow: 0 0 10px 0  #3897f0 inset; */
+        background-color:  #3897f0;
+        color:white;
 }
 .navbar{
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content:space-between;
     align-items: center;
-    width:100vh;
+    width:90vw;
 }
-.navbar .logobanner{
+/* .navbar .logobanner{
     background-image: url("https://www.instagram.com/static/bundles/es6/sprite_core_b20f2a3cd7e4.png/b20f2a3cd7e4.png");
     background-position: -98px 0;
     height: 51px;
@@ -100,4 +111,14 @@
     float:left;
     margin-right: 50%;
     display: flex;
+    background-image:url("https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png");
+    display:flex;
+} */
+
+.navbar img{
+    width:177px;
+}
+.feedposts{
+    display:flex;
+    flex-direction: column-reverse;
 }

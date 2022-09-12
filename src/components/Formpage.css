@@ -50,7 +50,8 @@ body{
     align-items: center;
     color: #999;
     margin-top: 5px;
-    margin-bottom: 0px;;
+    margin-bottom: 0px;
+
 }
 
 .fb-forgot{
@@ -103,7 +104,7 @@ input{
     width:300px;
 }
 .signup{
-    padding:8px;
+    padding:18px;
     margin-top:8px;
 }
 

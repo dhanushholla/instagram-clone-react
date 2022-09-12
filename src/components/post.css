@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 .postwrapper{
-    max-width: fit-content;
+    width: 60vw;
     display: flex;
     background-color:#e6e6e6;
     flex-direction: column;
@@ -90,8 +90,7 @@
     width:20px;border-radius: 50px;
 }
 .imagewrapper img{
-   width:300px;
-   object-fit: contain;
+   width:55vw;
    padding:5px;
 }
 .comments{
@@ -145,6 +144,6 @@
     align-items: baseline;
     border-top-left-radius: 6px;     
     border-bottom-right-radius: 6px;
-    background-color:rgb(146, 218, 210);
+    /* background-color:rgb(146, 218, 210); */
     width:fit-content;
 }
