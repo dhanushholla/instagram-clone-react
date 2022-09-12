@@ -123,7 +123,7 @@
     flex-direction: column-reverse;
 }
 .footer-navbar{
-    width:90vw;
+    width:70vw;
     display:flex;
     flex-direction: row;
     justify-content:space-between;

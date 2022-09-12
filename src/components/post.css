@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 .postwrapper{
-    width: 60vw;
+    width: 70vw;
     display: flex;
     background-color:#e6e6e6;
     flex-direction: column;

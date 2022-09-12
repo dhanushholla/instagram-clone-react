@@ -89,11 +89,11 @@ class Mainpage extends Component {
        }
       </div>
       <nav className='footer-navbar'>
-       <FaHome></FaHome>
-       <FaSearch></FaSearch>
-       <BiMoviePlay></BiMoviePlay>
-       <FaShoppingBag/>
-       <BsPersonCircle/>
+       <FaHome size='1.5rem' ></FaHome>
+       <FaSearch size='1.5rem'></FaSearch>
+       <BiMoviePlay size='1.5rem'></BiMoviePlay>
+       <FaShoppingBag size='1.5rem'/>
+       <BsPersonCircle size='1.5rem'/>
 
       </nav>
       </div>
