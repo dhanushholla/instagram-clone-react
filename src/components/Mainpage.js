@@ -63,6 +63,9 @@ class Mainpage extends Component {
         postdatas:[...this.state.postdatas,{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:"tester",caption:newcaption,mainimage:newimage,comments:newcomment}], 
         showform:false
       })
+      newimage=""
+      newcaption=""
+      newcomment=""
       window.scrollTo(0,0);
 
     } 
