@@ -13,16 +13,33 @@ import Mainpage from './components/Mainpage';
 
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      loginname:["test"],
+      passwd:["test"],
+      isloggedin:false
+    }
+  }
+
+
+  logininfo=()=>{
+    this.setState({isloggedin:!this.state.isloggedin})
+  }
+
    
   render() {
     return (<>
        <div className='App' id="app">
         <Routes>
-          <Route path="/" element={<FormPage/>}>
+          <Route path="/" element={<FormPage loginname={this.state.loginname} passwd={this.state.passwd} loginfn={this.logininfo}/>}> 
+          {/* */}
           </Route>
-            
-          <Route path="/feed" element = {<Mainpage/>} >
+          {  this.state.isloggedin &&
+          <Route path="/feed" element = {<Mainpage loginname={this.state.loginname}/>} >
           </Route>
+          } 
         </Routes>
         </div> 
         </>

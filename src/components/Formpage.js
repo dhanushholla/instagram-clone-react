@@ -2,21 +2,39 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Formpage.css'
 import Mainpage from './Mainpage';
+
 class Formpage extends Component {
   constructor(props) {
     super(props)
-  
+    // console.log("form constructor")
     this.state = {
-       loginname:""
+      currentname:"",
+      currentpswd:""
     }
   }
-  namepopulate=(e)=>{
-    this.setState({
-      loginname:e.target.value
-    })
-    // localStorage.setItem("loginname",this.state.loginname)
+
+// componentDidMount(){
+//   console.log("form mounted")
+// }
+  namedetailspopulate=(e)=>{
+  this.setState({currentname:e.target.value})    
+  // currentname=e.target.value
+    // console.log("Cur:",this.state.currentname)
+    // console.log("propname:",this.props.loginname)
   }
-  render() {
+  loginerror=()=>{
+    // console.log(this.state.currentname===this.props.loginname &&this.props.passwd===currentpswd)
+    alert("invalid credentials");
+     window.reload();
+  }
+  pswddetailspopulate=(e)=>{
+    this.setState({currentpswd:e.target.value}) 
+    // currentpswd=e.target.value
+    // console.log("cur paswd:",currentpswd)
+    // console.log("proppass:",this.props.passwd)
+  }
+  render(props) {
+    // console.log("form render")
     return (
       <div>
         <div class="container">        
@@ -24,12 +42,17 @@ class Formpage extends Component {
             <div class="heading">
             </div>
             <div class="inputfield">
-                <input type="text" placeholder="Phone number, username, or email" onChange={this.namepopulate}/>
+                <input type="text" placeholder="Phone number, username, or email" onChange={this.namedetailspopulate}/>
             </div>
             <div class="inputfield">
-                <input type="password" placeholder="Password"/>
+                <input type="password" placeholder="Password" onChange={this.pswddetailspopulate} />
             </div>
-            <Link to="/feed"><button class="login">Log In</button></Link>
+            { 
+              (this.props.loginname.includes(this.state.currentname) &&  this.props.passwd.includes(this.state.currentpswd))?<Link to="/feed"><button onClick={this.props.loginfn} class="login" >Log In</button></Link>//
+              :<button class="login" onClick={this.loginerror}>Log In</button>
+          
+            }
+            {/* <button className='register'>Register</button>   */}
             <div class="separator">
                 <div class="line"></div>
                 <p> OR </p>

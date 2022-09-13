@@ -109,16 +109,16 @@ class Post extends Component {
             {/* <img src="https://cdn-icons-png.flaticon.com/128/1077/1077035.png"  alt="loveicon"/> */}
             {/* {<FaRegHeart fill={this.state.likecount>0? "red":""}onClick={this.handlelike}></FaRegHeart>} */}
             {/* <FaHeart  onClick={this.handlelike}></FaHeart> */}
-            <span onClick={this.handlelike}>{this.state.liked> 0 ?<FaHeart fill='red'/>:<FaRegHeart/>}</span>
+            <span onClick={this.handlelike}>{this.state.liked> 0 ?<FaHeart size='1.5rem'fill='red'/>:<FaRegHeart size='1.5rem'/>}</span>
             {/* <img src="https://cdn-icons-png.flaticon.com/128/1947/1947247.png"  alt="commenticon"/> */}
-            <FaRegComment  fill={this.state.showcomment?"blue":""}onClick={this.handleshowcomment}/>
+            <FaRegComment size='1.5rem' fill={this.state.showcomment?"blue":""}onClick={this.handleshowcomment}/>
             {/* <img src="https://cdn-icons-png.flaticon.com/128/2099/2099085.png"  alt="shareicon"/> */}
-            <FaRegPaperPlane/>
+            <FaRegPaperPlane size='1.5rem'/>
             </div> 
             <div class="rightsideicons" onClick={this.handlesave}>
             {/* <img src="https://cdn-icons-png.flaticon.com/128/5662/5662990.png"  alt="saveicon"/>  */}
             {/* <BsBookmark backgroundColor={this.state.saved?"black":""}onClick={this.handlesave}/> */}
-            {this.state.saved?<FaBookmark/>:<FaRegBookmark/>}
+            {this.state.saved?<FaBookmark size='1.5rem'/>:<FaRegBookmark size='1.5rem'/>}
             </div>
             </div>
     <div className="comments" id="comments"><strong>{this.props.name}</strong><pre>  </pre>{this.props.caption}</div>
