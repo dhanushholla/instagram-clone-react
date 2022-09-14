@@ -114,7 +114,7 @@ class Mainpage extends Component {
       }
       <div className='feedposts'>
        { this.state.postdatas.map(
-        (post)=>(<Post name={post.username} image={post.mainimage} caption={post.caption} profilepic={post.profilepic}></Post>)
+        (post)=>(<Post name={post.username} image={post.mainimage} caption={post.caption} profilepic={post.profilepic} loginname={this.props.loginname}></Post>)
         )
        }
       </div>

@@ -122,14 +122,14 @@ class Post extends Component {
             {this.state.saved?<FaBookmark size='1.5rem'/>:<FaRegBookmark size='1.5rem'/>}
             </div>
             </div>
-            {this.state.liked?<div className='liked-by'>liked by {this.props.name}</div>:""}
+            {this.state.liked?<div className='liked-by'>liked by {this.props.loginname}</div>:""}
     <div className="comments" id="comments"><strong>{this.props.name}</strong><pre>  </pre>{this.props.caption}</div>
     <div className='comment-updater'>
     {
       (this.state.showcomment)?
       this.state.comments &&
       this.state.comments.map((comment)=>{
-         return (<div>{this.props.name} : {comment}</div>)
+         return (<div>{this.props.loginname} : {comment}</div>)
       }):""
     }
     </div>
