@@ -110,6 +110,7 @@ class Post extends Component {
             {/* {<FaRegHeart fill={this.state.likecount>0? "red":""}onClick={this.handlelike}></FaRegHeart>} */}
             {/* <FaHeart  onClick={this.handlelike}></FaHeart> */}
             <span onClick={this.handlelike}>{this.state.liked> 0 ?<FaHeart size='1.5rem'fill='red'/>:<FaRegHeart size='1.5rem'/>}</span>
+           
             {/* <img src="https://cdn-icons-png.flaticon.com/128/1947/1947247.png"  alt="commenticon"/> */}
             <FaRegComment size='1.5rem' fill={this.state.showcomment?"blue":""}onClick={this.handleshowcomment}/>
             {/* <img src="https://cdn-icons-png.flaticon.com/128/2099/2099085.png"  alt="shareicon"/> */}
@@ -121,13 +122,14 @@ class Post extends Component {
             {this.state.saved?<FaBookmark size='1.5rem'/>:<FaRegBookmark size='1.5rem'/>}
             </div>
             </div>
+            {this.state.liked?<div className='liked-by'>liked by {this.props.name}</div>:""}
     <div className="comments" id="comments"><strong>{this.props.name}</strong><pre>  </pre>{this.props.caption}</div>
     <div className='comment-updater'>
     {
       (this.state.showcomment)?
       this.state.comments &&
       this.state.comments.map((comment)=>{
-         return (<div>commentername : {comment}</div>)
+         return (<div>{this.props.name} : {comment}</div>)
       }):""
     }
     </div>

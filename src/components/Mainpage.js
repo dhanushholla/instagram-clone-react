@@ -5,10 +5,8 @@ import {Link} from 'react-router-dom'
 import {FaHome, FaSearch, FaShoppingBag} from 'react-icons/fa'
 import {BsPersonCircle} from 'react-icons/bs'
 import {BiMoviePlay} from 'react-icons/bi'
-// import {toast} from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// toast.configure()
-
+import {toast, ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 let newcaption="",newimage="",newcomment=[""]
 class Mainpage extends Component {
   constructor(props) {
@@ -64,16 +62,24 @@ class Mainpage extends Component {
       console.log("state is changed");
       this.setState({       
         // postdatas:[{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:"tester",caption:newcaption,mainimage:newimage,comments:newcomment},...this.state.postdatas,],
-        postdatas:[...this.state.postdatas,{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:this.props.loginname,caption:newcaption,mainimage:newimage,comments:newcomment}], 
+        postdatas:[...this.state.postdatas,{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:this.props.loginname.slice(-1),caption:newcaption,mainimage:newimage,comments:newcomment}], 
         showform:false
       })
       newimage=""
       newcaption=""
       newcomment=""
       window.scrollTo(0,0);
+      toast.success('new-post added!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
 
     } 
-
   render() {
     // console.log("mainpage render")
     return (
@@ -112,6 +118,7 @@ class Mainpage extends Component {
         )
        }
       </div>
+      <ToastContainer/>
       <nav className='footer-navbar'>
        <FaHome size='1.5rem' ></FaHome>
        <FaSearch size='1.5rem'></FaSearch>

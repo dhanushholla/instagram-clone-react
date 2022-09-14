@@ -147,3 +147,8 @@
     /* background-color:rgb(146, 218, 210); */
     width:fit-content;
 }
+.liked-by{
+    display:flex;
+    justify-content: flex-start;
+    float:left;
+}

@@ -25,15 +25,23 @@ class App extends Component {
 
 
   logininfo=()=>{
-    this.setState({isloggedin:!this.state.isloggedin})
+    this.setState({isloggedin:true})
   }
 
+  handleregistration=(a,b,e)=>{
+    // e.preventDefault();
+    console.log(a,b);
+    this.setState({
+      loginname:[...this.state.loginname,a],
+      passwd:[...this.state.passwd,b]
+    })
+  }
    
   render() {
     return (<>
        <div className='App' id="app">
         <Routes>
-          <Route path="/" element={<FormPage loginname={this.state.loginname} passwd={this.state.passwd} loginfn={this.logininfo}/>}> 
+          <Route path="/" element={<FormPage loginname={this.state.loginname} passwd={this.state.passwd} loginfn={this.logininfo} sendregisterdata={this.handleregistration}/>}> 
           {/* */}
           </Route>
           {  this.state.isloggedin &&
