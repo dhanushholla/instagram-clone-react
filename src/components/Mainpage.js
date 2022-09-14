@@ -62,7 +62,7 @@ class Mainpage extends Component {
       console.log("state is changed");
       this.setState({       
         // postdatas:[{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:"tester",caption:newcaption,mainimage:newimage,comments:newcomment},...this.state.postdatas,],
-        postdatas:[...this.state.postdatas,{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:this.props.loginname.slice(-1),caption:newcaption,mainimage:newimage,comments:newcomment}], 
+        postdatas:[...this.state.postdatas,{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:this.props.loginname,caption:newcaption,mainimage:newimage,comments:newcomment}], 
         showform:false
       })
       newimage=""
@@ -71,7 +71,7 @@ class Mainpage extends Component {
       window.scrollTo(0,0);
       toast.success('new-post added!', {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,

@@ -17,23 +17,27 @@ class App extends Component {
     super(props)
   
     this.state = {
-      loginname:["test"],
-      passwd:["test"],
-      isloggedin:false
+      loginname:"",//going to store currenlty logged person cred
+      isloggedin:false,
+      usercreds:[{logname:'test',pass:'test'}]
     }
   }
 
 
-  logininfo=()=>{
-    this.setState({isloggedin:true})
+  logininfo=(a)=>{
+    this.setState({isloggedin:true,loginname:a})
+    // this.setState({loginname:a})
+
   }
 
   handleregistration=(a,b,e)=>{
     // e.preventDefault();
     console.log(a,b);
     this.setState({
-      loginname:[...this.state.loginname,a],
-      passwd:[...this.state.passwd,b]
+      // loginname:[...this.state.loginname,a],
+      // passwd:[...this.state.passwd,b],
+      usercreds:[...this.state.usercreds,{logname:a,pass:b}],
+      
     })
   }
    
@@ -41,7 +45,7 @@ class App extends Component {
     return (<>
        <div className='App' id="app">
         <Routes>
-          <Route path="/" element={<FormPage loginname={this.state.loginname} passwd={this.state.passwd} loginfn={this.logininfo} sendregisterdata={this.handleregistration}/>}> 
+          <Route path="/" element={<FormPage loginname={this.state.loginname} passwd={this.state.passwd} loginfn={this.logininfo} sendregisterdata={this.handleregistration} usercreds={this.state.usercreds}/>}> 
           {/* */}
           </Route>
           {  this.state.isloggedin &&

@@ -15,7 +15,9 @@ class Formpage extends Component {
       currentpswd:"",
       showsignup:false,
       newname:"",
-      newpassword:""
+      newpassword:"",
+      retypedpassword:"",
+      showfields:"password"
     }
   }
   registername=(e)=>{
@@ -23,6 +25,9 @@ class Formpage extends Component {
   }
   registerpassword=(e)=>{
     this.setState({newpassword:e.target.value}) 
+  }
+  registerretypepassword=(e)=>{
+    this.setState({retypedpassword:e.target.value}) 
   }
   handlesignup=()=>{
     this.setState({showsignup:!this.state.showsignup})
@@ -60,7 +65,9 @@ class Formpage extends Component {
                 <input type="password" placeholder="Password" onChange={this.pswddetailspopulate} />
             </div>
             { 
-              (this.props.loginname.includes(this.state.currentname) &&  this.props.passwd.includes(this.state.currentpswd))?<Link to="/feed"><button onClick={this.props.loginfn} className="login" >Log In</button></Link>//
+              // (this.props.loginname.includes(this.state.currentname) &&  this.props.passwd.includes(this.state.currentpswd))?<Link to="/feed"><button onClick={this.props.loginfn} className="login" >Log In</button></Link>//
+              // :<button className="login" onClick={this.loginerror}>Log In</button>
+               this.props.usercreds.some(x=>(x.logname === this.state.currentname) && (x.pass===this.state.currentpswd)) ?<Link to="/feed"><button onClick={()=>{this.props.loginfn(this.state.currentname)}} className="login" >Log In</button></Link>//
               :<button className="login" onClick={this.loginerror}>Log In</button>
             }
             {/* <button className='register'>Register</button>   */}
@@ -90,11 +97,17 @@ class Formpage extends Component {
     <div className="signup">
      Register Yourself:
         <input type="text" placeholder='enter name' onChange={this.registername}/>
-        <input type="text" placeholder='set a new password' onChange={this.registerpassword}/>
-        <input type="text" placeholder='retype password'/>
+        <input type={this.state.showfields} placeholder='set a new password' onChange={this.registerpassword}>
+        </input>
+        <input type={this.state.showfields} placeholder='retype password' onChange={this.registerretypepassword}/>
+        <button onClick={()=>{
+          this.setState({showfields:this.state.showfields==="password"?'text':'password'})
+        }}><i class="fa fa-eye" style={{color:'red'}}></i></button>
         {/* <button>proceed!</button> */}
+        {this.state.newpassword === this.state.retypedpassword ?
         <button onClick={() => {
-          this.props.sendregisterdata(this.state.newname,this.state.newpassword);
+          // this.props.sendregisterdata(this.state.newname,this.state.newpassword);
+          this.props.sendregisterdata(this.state.newname,this.state.newpassword); 
           toast.success('User registered proceed with login', {
             position: "top-right",
             autoClose: 2000,
@@ -108,6 +121,19 @@ class Formpage extends Component {
             showsignup:!this.state.showsignup
           })
           }}>proceed!</button>
+          :<button onClick={()=>{
+            toast.error('entered passwords mismatch - retry registering', {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              });
+              // window.reload();
+          }}>proceed!</button>
+          }
     </div>:""
   }
       </div>
