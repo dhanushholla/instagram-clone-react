@@ -94,7 +94,7 @@ class Formpage extends Component {
     </div>
     <ToastContainer/>
     { this.state.showsignup ?
-    <div className="signup">
+    <div className="register">
      Register Yourself:
         <input type="text" placeholder='enter name' onChange={this.registername}/>
         <input type={this.state.showfields} placeholder='set a new password' onChange={this.registerpassword}>
