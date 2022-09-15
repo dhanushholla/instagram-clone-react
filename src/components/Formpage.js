@@ -5,10 +5,18 @@ import Mainpage from './Mainpage';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // toast.configure()
-
 class Formpage extends Component {
   constructor(props) {
     super(props)
+    toast.info('Please Register before trying to login! ', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      });
     // console.log("form constructor")
     this.state = {
       currentname:"",
@@ -104,7 +112,7 @@ class Formpage extends Component {
         <input type={this.state.showfields} placeholder='set a new password' onChange={this.registerpassword}>
         </input>
         <input type={this.state.showfields} placeholder='retype password' onChange={this.registerretypepassword}/>
-        <input type="file" onChange={this.profilepicchanged} placeholder=" upload profile pic"></input>
+        <input type="file" onChange={this.profilepicchanged}></input>
         <button onClick={()=>{
           this.setState({showfields:this.state.showfields==="password"?'text':'password'})
         }}><i class="fa fa-eye" style={{color:'red'}}></i></button>

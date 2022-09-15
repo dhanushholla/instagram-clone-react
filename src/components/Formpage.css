@@ -142,3 +142,9 @@ input{
 .download-btn-icons img{
     width:140px;
 }
+.register{
+    display:flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+}

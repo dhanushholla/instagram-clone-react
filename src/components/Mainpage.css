@@ -123,7 +123,7 @@
     flex-direction: column-reverse;
 }
 .footer-navbar{
-    width:70vw;
+    width:50vw;
     display:flex;
     flex-direction: row;
     justify-content:space-between;
@@ -132,4 +132,10 @@
     padding:1rem;
     margin-top:1rem;
     border-radius: 15px;
+    position: sticky;
+    bottom: 0;
+}
+.navbar-profile{
+    border:0.5px solid none;
+    width:35px;border-radius: 50%; height: 40px;
 }

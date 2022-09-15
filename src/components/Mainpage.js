@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, { Component } from "react";
 import Post from "./post";
 import "./Mainpage.css";
@@ -63,6 +64,23 @@ class Mainpage extends Component {
     newimage = URL.createObjectURL(e.target.files[0]);
   };
 
+  componentDidUpdate(prevProps,prevState)
+  {
+    // console.log("prevProps - mainpage - druing post add:",prevProps);
+    // console.log("prevState - mainpage - druing post add::",prevState);
+    // console.log("CurrentState - mainpage - druing post add::",this.state);
+    // console.log("CurrentProps - mainpage - druing post add::",this.props); 
+    {(prevState.postdatas.length != this.state.postdatas.length) && toast.success("new-post added!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    }) }
+  }
+
   handlenewpost = (e) => {
     e.preventDefault();
     console.log("state is changed");
@@ -86,15 +104,7 @@ class Mainpage extends Component {
     newcaption = "";
     newcomment = "";
     window.scrollTo(0, 0);
-    toast.success("new-post added!", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    });
+    
   };
   render() {
     // console.log("mainpage render")
@@ -161,7 +171,7 @@ class Mainpage extends Component {
             <FaSearch size="1.5rem"></FaSearch>
             <BiMoviePlay size="1.5rem"></BiMoviePlay>
             <FaRegHeart size="1.5rem"></FaRegHeart>
-            <BsPersonCircle size="1.5rem" />
+            <img src={this.props.profile} className='navbar-profile'></img>
           </nav>
         </div>
       </React.Fragment>
