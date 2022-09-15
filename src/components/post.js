@@ -131,7 +131,7 @@ class Post extends Component {
             </div>
           </div>
           {this.state.liked ? (
-            <div className="liked-by">liked by {this.props.loginname}</div>
+            <div className="liked-by"><img src={this.props.pp} ></img><pre> </pre>liked by {this.props.loginname}</div>
           ) : (
             ""
           )}
@@ -147,7 +147,10 @@ class Post extends Component {
                   this.state.comments.map((comment) => {
                     return (
                       <div className="eachcomment">
-                        {this.props.loginname} : {comment}
+                        <span className="commentpicwrapper">
+                        <img src={this.props.pp} ></img>  {this.props.loginname} : {comment}
+                        </span>
+                       
                       </div>
                     );
                   })
@@ -167,7 +170,7 @@ class Post extends Component {
                 ></input>
               </div>
               <button class="addcomment" onClick={this.handlenewcomment}>
-                Add Comment
+                post
               </button>
             </div>
           ) : (

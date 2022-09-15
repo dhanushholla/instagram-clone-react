@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Post from "./post";
 import "./Mainpage.css";
 import { Link } from "react-router-dom";
-import { FaHome, FaSearch, FaShoppingBag } from "react-icons/fa";
+import { FaHeart, FaHome, FaRegHeart, FaSearch, FaShoppingBag } from "react-icons/fa";
 import { BsPersonCircle } from "react-icons/bs";
 import { BiMoviePlay } from "react-icons/bi";
 import { toast, ToastContainer } from "react-toastify";
@@ -71,8 +71,9 @@ class Mainpage extends Component {
       postdatas: [
         ...this.state.postdatas,
         {
-          profilepic:
-            "https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+          // profilepic:
+          //   "https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+          profilepic:this.props.profile,
           username: this.props.loginname,
           caption: newcaption,
           mainimage: newimage,
@@ -150,6 +151,7 @@ class Mainpage extends Component {
                 caption={post.caption}
                 profilepic={post.profilepic}
                 loginname={this.props.loginname}
+                pp={this.props.profile}
               ></Post>
             ))}
           </div>
@@ -158,7 +160,7 @@ class Mainpage extends Component {
             <FaHome size="1.5rem"></FaHome>
             <FaSearch size="1.5rem"></FaSearch>
             <BiMoviePlay size="1.5rem"></BiMoviePlay>
-            <FaShoppingBag size="1.5rem" />
+            <FaRegHeart size="1.5rem"></FaRegHeart>
             <BsPersonCircle size="1.5rem" />
           </nav>
         </div>

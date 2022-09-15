@@ -14,6 +14,7 @@ class App extends Component {
       loginname: "", //going to store currenlty logged person cred
       isloggedin: false,
       usercreds: [{ logname: "test", pass: "test" }],
+      newprofilepicture:""
     };
   }
 
@@ -31,7 +32,9 @@ class App extends Component {
       usercreds: [...this.state.usercreds, { logname: a, pass: b }],
     });
   };
-
+  setprofilepicture=(a)=>{
+    this.setState({newprofilepicture:a})
+  }
   render() {
     return (
       <>
@@ -46,13 +49,14 @@ class App extends Component {
                   loginfn={this.logininfo}
                   sendregisterdata={this.handleregistration}
                   usercreds={this.state.usercreds}
+                  setpp={this.setprofilepicture}
                 />
               }
             ></Route>
             {this.state.isloggedin && (
               <Route
                 path="/feed"
-                element={<Mainpage loginname={this.state.loginname} />}
+                element={<Mainpage loginname={this.state.loginname} profile={this.state.newprofilepicture}/>}
               ></Route>
             )}
             <Route

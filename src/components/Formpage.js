@@ -17,7 +17,8 @@ class Formpage extends Component {
       newname:"",
       newpassword:"",
       retypedpassword:"",
-      showfields:"password"
+      showfields:"password",
+      newprofilepic:""
     }
   }
   registername=(e)=>{
@@ -48,6 +49,9 @@ class Formpage extends Component {
     // currentpswd=e.target.value
     // console.log("cur paswd:",currentpswd)
     // console.log("proppass:",this.props.passwd)
+  }
+  profilepicchanged=(e)=>{
+    this.setState({newprofilepic:URL.createObjectURL(e.target.files[0])})
   }
   render(props) {
     // console.log("form render")
@@ -100,10 +104,11 @@ class Formpage extends Component {
         <input type={this.state.showfields} placeholder='set a new password' onChange={this.registerpassword}>
         </input>
         <input type={this.state.showfields} placeholder='retype password' onChange={this.registerretypepassword}/>
+        <input type="file" onChange={this.profilepicchanged} placeholder=" upload profile pic"></input>
         <button onClick={()=>{
           this.setState({showfields:this.state.showfields==="password"?'text':'password'})
         }}><i class="fa fa-eye" style={{color:'red'}}></i></button>
-        {/* <button>proceed!</button> */}
+        {/* <button>proceed!</button> */}    
         {this.state.newpassword === this.state.retypedpassword ?
         <button onClick={() => {
           // this.props.sendregisterdata(this.state.newname,this.state.newpassword);
@@ -120,6 +125,7 @@ class Formpage extends Component {
           this.setState({
             showsignup:!this.state.showsignup
           })
+          this.props.setpp(this.state.newprofilepic)
           }}>proceed!</button>
           :<button onClick={()=>{
             toast.error('entered passwords mismatch - retry registering', {
