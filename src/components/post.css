@@ -147,8 +147,8 @@
     font-size:12px;
     padding:3px;align-self: center;
     border-style:solid; */
-    color:white;
-    background-color: cadetblue;
+    color:black;
+    background-color: white;
     border-radius: 10px;
     padding:3px;
     align-self: center;
@@ -159,10 +159,8 @@
     font-size:12px;
     padding:3px;align-self: center;
     border-style:solid; */
-    background-color: teal;
+    background-color:black ;
     color:white;
-    border:1px solid white;
-    transform: scale(1.0);
     border-radius: 10px;
     padding: 3px;
     align-self: center;
@@ -192,4 +190,7 @@
     flex-wrap: wrap;
     word-wrap: break-word;
     flex-direction: column;
+}
+video{
+    object-fit: contain;
 }

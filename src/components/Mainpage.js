@@ -161,6 +161,7 @@ class Mainpage extends Component {
                   <input
                     type="file"
                     onChange={this.handlenewImage}
+                    accept="image/*,video/*"
                     required
                   ></input>
                 </div>

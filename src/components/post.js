@@ -237,6 +237,7 @@ class Post extends Component {
           </div>
           {/* <div class="imagewrapper"> */}
           <img src={this.props.image} alt="image missing" />
+          {/* <video src={this.props.image} alt="video missing" autoPlay controls  /> */}
           {/* </div> */}
 
           <div class="bottomwrapper">

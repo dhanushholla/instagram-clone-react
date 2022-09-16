@@ -8,15 +8,15 @@ import 'react-toastify/dist/ReactToastify.css';
 class Formpage extends Component {
   constructor(props) {
     super(props)
-    toast.info('Please Register before trying to login! ', {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      });
+    // toast.info('Please Register before trying to login! ', {
+    //   position: "top-center",
+    //   autoClose: 2000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: false,
+    //   draggable: true,
+    //   progress: undefined,
+    //   });
     // console.log("form constructor")
     this.state = {
       currentname:"",
@@ -28,6 +28,17 @@ class Formpage extends Component {
       showfields:"password",
       newprofilepic:""
     }
+  }
+  componentDidMount(){
+    toast.info('Please Register, before trying to login! ', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      }); 
   }
 
   registername=(e)=>{
