@@ -7,7 +7,13 @@ import { FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { BsBookmark } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
-
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import { FaUserPlus } from "react-icons/fa";
+import { FaUserMinus } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+let delcode=0
 class Post extends Component {
   // handlenewcomment=()=>{
   //   let data=document.getElementById("new-comment").value;
@@ -27,9 +33,48 @@ class Post extends Component {
       liked: 0,
       saved: 0,
       showcomment: 0,
+      deleteselection: this.props.deleteselect,
+
     };
   }
-
+  componentWillUnmount() {
+    // prevState.postdatas.length > this.state.postdatas.length + 1 &&
+      if(delcode===2)
+      {
+       toast.success("post deleted", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        })
+      }
+      else if(delcode===1)
+      {
+      toast.success("post hidden", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+      else{
+        toast.info("unexpected ", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+  }
   handlenewcommentInput = (e) => {
     this.setState({
       newcommentinput: e.target.value,
@@ -46,6 +91,25 @@ class Post extends Component {
 
   handleFollow = () => {
     this.setState({ follow: !this.state.follow });
+    this.state.follow
+      ? toast.success("Following", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        })
+      : toast.warning("unfollowed", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
   };
   handlelike = () => {
     if (this.state.liked <= 0) {
@@ -69,8 +133,8 @@ class Post extends Component {
     }
   };
   render(props) {
-    console.log(this.state);
-
+    console.log("post comp state:", this.state);
+    // console.log("post comp props :", this.props);
     return (
       <div>
         <div class="postwrapper">
@@ -85,19 +149,96 @@ class Post extends Component {
                 </p>
               </div>
             </div>
-            {this.state.follow ? (
-              <div class="followwrapper">
-                <button onClick={this.handleFollow}>Unfollow</button>
+            <ToastContainer />
+            {this.props.loginname !== this.props.name ?
+              (
+                              this.state.follow ? 
+                              (
+                                    <div className="followwrapper">
+                                       <button onClick={this.handleFollow}>
+                                          <FaUserPlus />
+                                        </button>
+                                          {this.props.name !== this.props.loginname ? 
+                                          (
+                                            <button
+                                              className="deletebtn"
+                                              onClick={() => {
+                                                this.setState({ deleteselection: 1 });
+                                                delcode=1
+                                                this.props.deletefn(this.props.index);
+                                              }}
+                                            >
+                                              <FaEyeSlash />
+                                            </button>
+                                          ) : 
+                                          (
+                                            <button
+                                              className="deletebtn"
+                                              onClick={() => {
+                                                this.setState({ deleteselection: 1 });
+                                                delcode=2
+                                                this.props.deletefn(this.props.index);
+                                              }}
+                                            >
+                                              <FaRegTrashAlt />
+                                            </button>
+                                          )}
+                                        </div>
+                              )
+                              :
+                              (
+                                <div className="followwrapper">
+                                  <button onClick={this.handleFollow}>
+                                    <FaUserMinus />
+                                  </button>
+                                  {this.props.name !== this.props.loginname ? 
+                                  (
+                                    <button
+                                      className="deletebtn"
+                                      onClick={() => {
+                                        this.setState({ deleteselection: 1 });
+                                        delcode=1
+                                        this.props.deletefn(this.props.index);
+                                      }}
+                                    >
+                                      <FaEyeSlash />
+                                    </button>
+                                  ) : 
+                                  (
+                                    <button
+                                      className="deletebtn"
+                                      onClick={() => {
+                                        this.setState({ deleteselection: 1 });
+                                        delcode=2
+                                        this.props.deletefn(this.props.index);
+                                      }}
+                                    >
+                                      <FaRegTrashAlt />
+                                    </button>
+                                  )}
+                                </div>
+                            )
+              ):
+              (
+                <div className="followwrapper">
+                  <button
+                    className="deletebtn"
+                    onClick={() => {
+                      this.setState({ deleteselection: 1 });
+                      delcode=2
+                      this.props.deletefn(this.props.index);
+                    }}
+                  >
+                    <FaRegTrashAlt />
+                  </button>
               </div>
-            ) : (
-              <div class="followwrapper">
-                <button onClick={this.handleFollow}>follow</button>
-              </div>
-            )}
+              )              
+            }
           </div>
           {/* <div class="imagewrapper"> */}
           <img src={this.props.image} alt="image missing" />
           {/* </div> */}
+
           <div class="bottomwrapper">
             <div class="leftsideicons">
               {/* <img src="https://cdn-icons-png.flaticon.com/128/1077/1077035.png"  alt="loveicon"/> */}
@@ -131,7 +272,10 @@ class Post extends Component {
             </div>
           </div>
           {this.state.liked ? (
-            <div className="liked-by"><img src={this.props.pp} ></img><pre> </pre>liked by {this.props.loginname}</div>
+            <div className="liked-by">
+              <img src={this.props.pp}></img>
+              <pre> </pre>liked by {this.props.loginname}
+            </div>
           ) : (
             ""
           )}
@@ -148,9 +292,9 @@ class Post extends Component {
                     return (
                       <div className="eachcomment">
                         <span className="commentpicwrapper">
-                        <img src={this.props.pp} ></img>  {this.props.loginname} : {comment}
+                          <img src={this.props.pp}></img> {this.props.loginname}{" "}
+                          : {comment}
                         </span>
-                       
                       </div>
                     );
                   })

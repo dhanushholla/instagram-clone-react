@@ -29,6 +29,7 @@ class Formpage extends Component {
       newprofilepic:""
     }
   }
+
   registername=(e)=>{
     this.setState({newname:e.target.value})
   }
