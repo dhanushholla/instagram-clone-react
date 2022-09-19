@@ -124,7 +124,8 @@ class Formpage extends Component {
         <input type={this.state.showfields} placeholder='set a new password' onChange={this.registerpassword}>
         </input>
         <input type={this.state.showfields} placeholder='retype password' onChange={this.registerretypepassword}/>
-        <input type="file" onChange={this.profilepicchanged}></input>
+        {/* <label for="ppimage" className='ppimage'>profilepic</label>  */}
+        <input type="file" onChange={this.profilepicchanged} id="ppimage" alt="profilepicinput"></input>
         <button onClick={()=>{
           this.setState({showfields:this.state.showfields==="password"?'text':'password'})
         }}><i class="fa fa-eye" style={{color:'red'}}></i></button>

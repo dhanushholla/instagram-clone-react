@@ -19,6 +19,7 @@ let newcaption = "",
   newimage = "",
   newcomment = [""];
 class Mainpage extends Component {
+
   constructor(props) {
     super(props);
     // console.log("main page constructor")
@@ -57,6 +58,9 @@ class Mainpage extends Component {
     };
   }
 
+ 
+  
+
   handleAddpost = () => {
     this.setState({
       showform: true,
@@ -90,20 +94,20 @@ class Mainpage extends Component {
           draggable: true,
           progress: undefined,
         });
-      
+
     }
   }
-  
+
   deletethepost = (i) => {
     const arr = this.state.postdatas.filter((data, index) => {
       return i !== index;
     });
-    console.log("New array:", arr);
+    // console.log("New array:", arr);
     this.setState({ postdatas: arr });
   };
   handlenewpost = (e) => {
     e.preventDefault();
-    console.log("state is changed");
+    // console.log("state is changed");
     this.setState({
       // postdatas:[{profilepic:"https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydG9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",username:"tester",caption:newcaption,mainimage:newimage,comments:newcomment},...this.state.postdatas,],
       postdatas: [
@@ -124,7 +128,7 @@ class Mainpage extends Component {
     newimage = "";
     newcaption = "";
     newcomment = "";
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0); 
   };
   render() {
     // console.log("postdatas value in mainpage state",this.state.postdatas)
@@ -174,7 +178,7 @@ class Mainpage extends Component {
               </form>
             </div>
           )}
-          <div className="feedposts">
+          <div className="feedposts" >
             {this.state.postdatas.map((post, index) => (
               <Post
                 name={post.username}
@@ -195,7 +199,11 @@ class Mainpage extends Component {
             <FaSearch size="1.5rem"></FaSearch>
             <BiMoviePlay size="1.5rem"></BiMoviePlay>
             <FaRegHeart size="1.5rem"></FaRegHeart>
-            <img src={this.props.profile} className="navbar-profile"></img>
+            <img
+              src={this.props.profile}
+              className="navbar-profile"
+              alt="footer-loginpic"
+            ></img>
           </nav>
         </div>
       </React.Fragment>

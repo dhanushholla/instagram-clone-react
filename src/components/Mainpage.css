@@ -120,7 +120,8 @@
 }
 .feedposts{
     display:flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    /* border:1px solid #3897f0; */
 }
 .footer-navbar{
     width:50vw;

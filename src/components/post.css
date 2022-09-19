@@ -77,7 +77,7 @@
 .commentpicwrapper{
     display:flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     gap:1rem;
 }
@@ -168,13 +168,16 @@
 .comment-updater{
     font-size:15px;
     font-weight: lighter;
-    display:flex;
+    /* display:flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    /* flex-direction: column; */
+    /* justify-content: flex-start;
+    align-items: flex-start;  */
     text-align: left;
     word-wrap: break-word;
+    height: 40px;
+    overflow: scroll;
+    
     /* border-top-left-radius: 6px;     
     border-bottom-right-radius: 6px; */
     /* background-color:rgb(146, 218, 210); */
