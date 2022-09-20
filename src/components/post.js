@@ -278,8 +278,9 @@ class Post extends Component {
             )}
           </div>
           {/* <div class="imagewrapper"> */}
-          <img src={this.props.image} alt="image missing" />
-          {/* <video src={this.props.image} alt="video missing" autoPlay controls  /> */}
+        {this.props.mediatype.includes("image")&&<img src={this.props.image} alt="image missing" />}
+        {this.props.mediatype.includes("video")&&<video src={this.props.image} alt="video missing"  controls/> }
+        {this.props.mediatype.includes("audio")&& <audio src={this.props.image} alt="audio missing" controls/>}
           {/* </div> */}
 
           <div class="bottomwrapper">

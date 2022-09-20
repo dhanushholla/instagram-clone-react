@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 let newcaption = "",
   newimage = "",
   newcomment = [""];
+let  mediatype="";
 class Mainpage extends Component {
 
   constructor(props) {
@@ -34,6 +35,7 @@ class Mainpage extends Component {
           mainimage:
             "https://c.tenor.com/MuhlnnRpq2wAAAAM/vadivelu-thalavalikudu-da.gif",
           delselect: 0,
+          mediatype:"image"
         },
         {
           profilepic:
@@ -43,6 +45,7 @@ class Mainpage extends Component {
           mainimage:
             "https://c.tenor.com/_Hj95ZMsq8cAAAAC/how-do-i-tell-you-vadivelu.gif",
           delselect: 0,
+          mediatype:"image"
         },
         {
           profilepic:
@@ -53,6 +56,7 @@ class Mainpage extends Component {
           mainimage:
             "https://c.tenor.com/a98TfgzHHc8AAAAM/vadivelu-singamuthu.gif",
           delselect: 0,
+          mediatype:"image"
         },
       ],
     };
@@ -75,6 +79,8 @@ class Mainpage extends Component {
     newcaption = e.target.value;
   };
   handlenewImage = (e) => {
+    mediatype=e.target.files[0].type
+    console.log("mediatype in mainpage")
     newimage = URL.createObjectURL(e.target.files[0]);
   };
 
@@ -121,6 +127,7 @@ class Mainpage extends Component {
           mainimage: newimage,
           comments: newcomment,
           delselect: 0,
+          mediatype:mediatype
         },
       ],
       showform: false,
@@ -128,6 +135,7 @@ class Mainpage extends Component {
     newimage = "";
     newcaption = "";
     newcomment = "";
+    mediatype="";
     // window.scrollTo(0, 0); 
   };
   render() {
@@ -161,11 +169,11 @@ class Mainpage extends Component {
                   />
                 </div>
                 <div className="new-imageupload">
-                  <label>NewImage:</label>
+                  <label>new-Image/video/audio:</label>
                   <input
                     type="file"
                     onChange={this.handlenewImage}
-                    accept="image/*,video/*"
+                    accept="image/*,video/*,audio/*"
                     required
                   ></input>
                 </div>
@@ -190,6 +198,7 @@ class Mainpage extends Component {
                 deleteselect={post.delselect}
                 deletefn={this.deletethepost}
                 index={index}
+                mediatype={post.mediatype}
               ></Post>
             ))}
           </div>

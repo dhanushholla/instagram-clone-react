@@ -196,4 +196,12 @@
 }
 video{
     object-fit: contain;
+    align-self: center;
+    height:40vh;
+   
+}
+audio{
+    object-fit:contain;
+    align-self:center;
+    width:50vw;
 }
