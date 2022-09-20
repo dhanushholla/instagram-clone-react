@@ -5,7 +5,6 @@ import { FaRegComment } from "react-icons/fa";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
-import { BsBookmark } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
@@ -140,11 +139,21 @@ class Post extends Component {
       });
     }
   };
+  handlenewcomment1=()=>{
+    if (this.state.newcommentinput !== "") {
+      //to prevent empty comment addition
+      this.setState({
+        comments: [...this.state.comments, this.state.newcommentinput],
+        newcommentinput: "",
+        showcomment: 1,
+      });
+    } 
+  }
 
   handleFollow = () => {
     this.setState({ follow: !this.state.follow });
     this.state.follow
-      ? toast.success("Following", {
+      ?toast.success("Following", {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
@@ -153,7 +162,7 @@ class Post extends Component {
           draggable: true,
           progress: undefined,
         })
-      : toast.warning("unfollowed", {
+      :toast.warning("unfollowed", {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
@@ -278,9 +287,9 @@ class Post extends Component {
             )}
           </div>
           {/* <div class="imagewrapper"> */}
-        {this.props.mediatype.includes("image")&&<img src={this.props.image} alt="image missing" />}
+        {this.props.mediatype.includes("image")&&<img src={this.props.image} alt="pic missing" />}
         {this.props.mediatype.includes("video")&&<video src={this.props.image} alt="video missing"  controls/> }
-        {this.props.mediatype.includes("audio")&& <audio src={this.props.image} alt="audio missing" controls/>}
+        {this.props.mediatype.includes("audio")&& <audio src={this.props.image} alt="audio missing" controls/>  }
           {/* </div> */}
 
           <div class="bottomwrapper">
@@ -356,9 +365,12 @@ class Post extends Component {
                   placeholder="add comments!"
                   value={this.state.newcommentinput}
                   onChange={this.handlenewcommentInput}
+                  onKeyDown={(e)=>{
+                    if(e.key==="Enter"){this.handlenewcomment1(e)}
+                  }}
                 ></input>
               </div>
-              <button class="addcomment" onClick={this.handlenewcomment}>
+              <button class="addcomment" onClick={this.handlenewcomment} >
                 post
               </button>
             </div>

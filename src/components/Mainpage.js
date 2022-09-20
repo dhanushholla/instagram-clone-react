@@ -26,6 +26,7 @@ class Mainpage extends Component {
     // console.log("main page constructor")
     this.state = {
       showform: false,
+
       postdatas: [
         {
           profilepic:
@@ -62,8 +63,7 @@ class Mainpage extends Component {
     };
   }
 
- 
-  
+
 
   handleAddpost = () => {
     this.setState({

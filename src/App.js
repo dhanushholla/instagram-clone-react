@@ -11,12 +11,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loginname: "", //going to store currenlty logged person cred
+      loginname: "", //going to store currently logged person username
       isloggedin: false,
       usercreds: [{ logname: "test", pass: "test" }],
-      newprofilepicture:""
+      newprofilepicture:"",
     };
   }
+
 
   logininfo = (a) => {
     this.setState({ isloggedin: true, loginname: a });

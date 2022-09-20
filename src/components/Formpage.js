@@ -30,9 +30,9 @@ class Formpage extends Component {
     }
   }
   componentDidMount(){
-    toast.info('Please Register, before trying to login! ', {
-      position: "top-center",
-      autoClose: 2000,
+    toast.info('Please Register by setting up name,password,profile-pic for the account and proceed with same for login! ', {
+      position: "top-right",
+      autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: false,
