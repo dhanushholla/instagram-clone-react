@@ -326,7 +326,7 @@ class Post extends Component {
           </div>
           {this.state.liked ? (
             <div className="liked-by">
-              <img src={this.props.pp}></img>
+              <img src={this.props.pp} alt="like pic miss"></img>
               <pre> </pre>liked by {this.props.loginname}
             </div>
           ) : (
@@ -346,7 +346,7 @@ class Post extends Component {
                       <div className="eachcomment">
                         <span className="commentpicwrapper">
                           {/* <span className="commentpicwrapper"> */}
-                          <img src={this.props.pp}></img> {this.props.loginname}{" "}
+                          <img src={this.props.pp} alt="comment pic miss"></img> {this.props.loginname}{" "}
                           : {comment}
                         </span>
                       </div>

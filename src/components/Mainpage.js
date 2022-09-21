@@ -4,14 +4,10 @@ import Post from "./post";
 import "./Mainpage.css";
 import { Link } from "react-router-dom";
 import {
-  FaHeart,
   FaHome,
-  FaRegHandScissors,
   FaRegHeart,
   FaSearch,
-  FaShoppingBag,
 } from "react-icons/fa";
-import { BsPersonCircle } from "react-icons/bs";
 import { BiMoviePlay } from "react-icons/bi";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
