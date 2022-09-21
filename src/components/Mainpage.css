@@ -140,3 +140,148 @@
     border:0.5px solid none;
     width:35px;border-radius: 50%; height: 40px;
 }
+
+@media screen and (max-device-width:480px){
+    .new-form{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;   
+        justify-content: flex-start;
+        gap:20px;
+        border:2px solid black;
+    }
+    .new-form div{
+        margin:12px;padding:13px;
+    }
+    .new-form input{
+       border:1px solid aquamarine;
+       border-radius: 10px;
+       padding:20px;
+       display:flex;
+    }
+    .new-form button[type="submit"]{
+        color:black;
+        background-color: white;
+        border:5px solid aquamarine;
+        border-radius: 10px; 
+    }
+    .new-form button{
+        color:black;
+        background-color: white;
+        border:5px solid aquamarine;
+        border-radius: 10px; 
+        margin:15px;
+    }
+    .new-form button[type="submit"]:hover{
+        background-color: green;
+        color:white;
+        border:1px solid aquamarine;
+        transform: scale(1.5);
+        border-radius: 10px;
+    }
+    .new-form button:hover{
+        background-color: red;
+        color:black;
+        border:1px solid snow;
+        transform: scale(1.5);
+        border-radius: 10px;
+    }
+    .addpostbtn {
+        appearance: none;
+        background-color: transparent;
+        border: 2px solid aquamarine;
+        border-radius: 5px;
+        color: black;
+        cursor: pointer;
+        display: flex;
+        padding: 1rem;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+        float:inherit;
+        margin:0.5rem;
+      }
+      .addpostbtn:hover{
+        box-shadow: 0 0 40px 40px green inset; 
+        color:white;
+      }
+    
+    .result{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .logoutbtn{
+        appearance: none;
+        background-color: transparent;
+        border: 2px solid aquamarine;
+        border-radius: 5px;
+        color: black;
+        cursor: pointer;
+        display: flex;
+        padding: 1rem;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+        float:inherit;
+        margin:0.5rem;
+    }
+    .Linkcls{
+        text-decoration: none;
+    }
+    .logoutbtn:hover{
+            /* box-shadow: 0 0 10px 0  #3897f0 inset; */
+            background-color:  #3897f0;
+            color:white;
+    }
+    .navbar{
+        display:flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+        width:90vw;
+    }
+    /* .navbar .logobanner{
+        background-image: url("https://www.instagram.com/static/bundles/es6/sprite_core_b20f2a3cd7e4.png/b20f2a3cd7e4.png");
+        background-position: -98px 0;
+        height: 51px;
+        width: 177px;
+        overflow: hidden;
+        float:left;
+        margin-right: 50%;
+        display: flex;
+        background-image:url("https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png");
+        display:flex;
+    } */
+    
+    .navbar img{
+        width:177px;
+    }
+    .feedposts{
+        display:flex;
+        flex-direction: column;
+        /* border:1px solid #3897f0; */
+    }
+    .footer-navbar{
+        width:90vw;
+        display:flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+        background-color:#e6e6e6 ;
+        padding:1rem;
+        margin-top:1rem;
+        border-radius: 15px;
+        opacity: 90%;
+        bottom: 0;
+    }
+    .navbar-profile{
+        border:0.5px solid none;
+        width:35px;border-radius: 50%; height: 40px;
+    } 
+}
