@@ -49,7 +49,7 @@ class Post extends Component {
       }
       return null;
     }
-
+   // added getDerivedStateFromProps -- initially assign prop to child state var then changes value of prop..thus to reflect changed propvalue to state use this method. toggle theme used here.. yet to find approriate usecase
   getSnapshotBeforeUpdate(prevProps, prevState) {
     // Are we adding new items to the list?
     // Capture the scroll position so we can adjust scroll later.
