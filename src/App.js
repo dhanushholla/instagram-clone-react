@@ -14,10 +14,9 @@ class App extends Component {
       loginname: "", //going to store currently logged person username
       isloggedin: false,
       usercreds: [{ logname: "test", pass: "test" }],
-      newprofilepicture:"",
+      newprofilepicture: "",
     };
   }
-
 
   logininfo = (a) => {
     this.setState({ isloggedin: true, loginname: a });
@@ -33,9 +32,9 @@ class App extends Component {
       usercreds: [...this.state.usercreds, { logname: a, pass: b }],
     });
   };
-  setprofilepicture=(a)=>{
-    this.setState({newprofilepicture:a})
-  }
+  setprofilepicture = (a) => {
+    this.setState({ newprofilepicture: a });
+  };
   render() {
     return (
       <>
@@ -57,7 +56,12 @@ class App extends Component {
             {this.state.isloggedin && (
               <Route
                 path="/feed"
-                element={<Mainpage loginname={this.state.loginname} profile={this.state.newprofilepicture}/>}
+                element={
+                  <Mainpage
+                    loginname={this.state.loginname}
+                    profile={this.state.newprofilepicture}
+                  />
+                }
               ></Route>
             )}
             <Route

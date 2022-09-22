@@ -3,26 +3,23 @@ import React, { Component } from "react";
 import Post from "./post";
 import "./Mainpage.css";
 import { Link } from "react-router-dom";
-import {
-  FaHome,
-  FaRegHeart,
-  FaSearch,
-} from "react-icons/fa";
+import { FaHome, FaRegHeart, FaSearch } from "react-icons/fa";
 import { BiMoviePlay } from "react-icons/bi";
+import { BsSun } from "react-icons/bs";
+import { BsMoonStars } from "react-icons/bs";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 let newcaption = "",
   newimage = "",
   newcomment = [""];
-let  mediatype="";
+let mediatype = "";
 class Mainpage extends Component {
-
   constructor(props) {
     super(props);
     // console.log("main page constructor")
     this.state = {
       showform: false,
-
+      theme: "light",
       postdatas: [
         {
           profilepic:
@@ -32,7 +29,7 @@ class Mainpage extends Component {
           mainimage:
             "https://c.tenor.com/MuhlnnRpq2wAAAAM/vadivelu-thalavalikudu-da.gif",
           delselect: 0,
-          mediatype:"image"
+          mediatype: "image",
         },
         {
           profilepic:
@@ -42,7 +39,7 @@ class Mainpage extends Component {
           mainimage:
             "https://c.tenor.com/_Hj95ZMsq8cAAAAC/how-do-i-tell-you-vadivelu.gif",
           delselect: 0,
-          mediatype:"image"
+          mediatype: "image",
         },
         {
           profilepic:
@@ -53,13 +50,19 @@ class Mainpage extends Component {
           mainimage:
             "https://c.tenor.com/a98TfgzHHc8AAAAM/vadivelu-singamuthu.gif",
           delselect: 0,
-          mediatype:"image"
+          mediatype: "image",
         },
       ],
     };
   }
 
-
+  themehandle = () => {
+    if (this.state.theme === "light") {
+      this.setState({ theme: "dark" });
+    } else {
+      this.setState({ theme: "light" });
+    }
+  };
 
   handleAddpost = () => {
     this.setState({
@@ -75,8 +78,8 @@ class Mainpage extends Component {
     newcaption = e.target.value;
   };
   handlenewImage = (e) => {
-    mediatype=e.target.files[0].type
-    console.log("mediatype in mainpage")
+    mediatype = e.target.files[0].type;
+    console.log("mediatype in mainpage");
     newimage = URL.createObjectURL(e.target.files[0]);
   };
 
@@ -96,7 +99,6 @@ class Mainpage extends Component {
           draggable: true,
           progress: undefined,
         });
-
     }
   }
 
@@ -123,7 +125,7 @@ class Mainpage extends Component {
           mainimage: newimage,
           comments: newcomment,
           delselect: 0,
-          mediatype:mediatype
+          mediatype: mediatype,
         },
       ],
       showform: false,
@@ -131,8 +133,8 @@ class Mainpage extends Component {
     newimage = "";
     newcaption = "";
     newcomment = "";
-    mediatype="";
-    // window.scrollTo(0, 0); 
+    mediatype = "";
+    // window.scrollTo(0, 0);
   };
   render() {
     // console.log("postdatas value in mainpage state",this.state.postdatas)
@@ -144,6 +146,18 @@ class Mainpage extends Component {
               src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png"
               alt="logo"
             ></img>
+            {/* <input type="text" placeholder="Theme: dark||light" onChange={this.themehandle} className="themetoggle"></input> */}
+            <span className="themetoggle">
+              {this.state.theme==='light'?
+              <button onClick={this.themehandle}>
+               press to<BsMoonStars />
+              </button>:
+              <button onClick={this.themehandle}>
+              press to<BsSun /> 
+              </button>
+               }
+            </span>
+         
             <button onClick={this.handleAddpost} className="addpostbtn">
               add post
             </button>
@@ -182,7 +196,7 @@ class Mainpage extends Component {
               </form>
             </div>
           )}
-          <div className="feedposts" >
+          <div className="feedposts">
             {this.state.postdatas.map((post, index) => (
               <Post
                 name={post.username}
@@ -195,6 +209,7 @@ class Mainpage extends Component {
                 deletefn={this.deletethepost}
                 index={index}
                 mediatype={post.mediatype}
+                theme={this.state.theme}
               ></Post>
             ))}
           </div>

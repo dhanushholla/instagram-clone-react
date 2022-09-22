@@ -34,12 +34,21 @@ class Post extends Component {
       saved: 0,
       showcomment: 0,
       deleteselection: this.props.deleteselect,
+      thememode: this.props.theme,
     };
   }
 
   setListRef = (ref) => {
     this.listRef = ref;
   };
+
+    static getDerivedStateFromProps(props,state){
+      if(props.theme!==state.thememode)
+      {
+        return({thememode:props.theme})
+      }
+      return null;
+    }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     // Are we adding new items to the list?
@@ -60,7 +69,7 @@ class Post extends Component {
         "scrollheight:",
         this.listRef.scrollHeight
       );
-      return this.listRef.scrollHeight - this.listRef.scrollTop + 40 ;
+      return this.listRef.scrollHeight - this.listRef.scrollTop + 40;
     }
     return null;
   }
@@ -86,7 +95,7 @@ class Post extends Component {
         "snapshot:",
         snapshot
       );
-      this.listRef.scrollTop = this.listRef.scrollHeight - snapshot ;
+      this.listRef.scrollTop = this.listRef.scrollHeight - snapshot;
     }
   }
 
@@ -139,7 +148,7 @@ class Post extends Component {
       });
     }
   };
-  handlenewcomment1=()=>{
+  handlenewcomment1 = () => {
     if (this.state.newcommentinput !== "") {
       //to prevent empty comment addition
       this.setState({
@@ -147,13 +156,13 @@ class Post extends Component {
         newcommentinput: "",
         showcomment: 1,
       });
-    } 
-  }
+    }
+  };
 
   handleFollow = () => {
     this.setState({ follow: !this.state.follow });
     this.state.follow
-      ?toast.success("Following", {
+      ? toast.success("Following", {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
@@ -162,7 +171,7 @@ class Post extends Component {
           draggable: true,
           progress: undefined,
         })
-      :toast.warning("unfollowed", {
+      : toast.warning("unfollowed", {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
@@ -197,7 +206,7 @@ class Post extends Component {
     // console.log("post comp state:", this.state);
     // console.log("post comp props :", this.props);
     return (
-      <div>
+      <div className={this.state.thememode}>
         <div class="postwrapper">
           <div class="posttopwrapper">
             <div class="namepicwrapper">
@@ -287,9 +296,15 @@ class Post extends Component {
             )}
           </div>
           {/* <div class="imagewrapper"> */}
-        {this.props.mediatype.includes("image")&&<img src={this.props.image} alt="pic missing" />}
-        {this.props.mediatype.includes("video")&&<video src={this.props.image} alt="video missing"  controls/> }
-        {this.props.mediatype.includes("audio")&& <audio src={this.props.image} alt="audio missing" controls/>  }
+          {this.props.mediatype.includes("image") && (
+            <img src={this.props.image} alt="pic missing" />
+          )}
+          {this.props.mediatype.includes("video") && (
+            <video src={this.props.image} alt="video missing" controls />
+          )}
+          {this.props.mediatype.includes("audio") && (
+            <audio src={this.props.image} alt="audio missing" controls />
+          )}
           {/* </div> */}
 
           <div class="bottomwrapper">
@@ -346,8 +361,11 @@ class Post extends Component {
                       <div className="eachcomment">
                         <span className="commentpicwrapper">
                           {/* <span className="commentpicwrapper"> */}
-                          <img src={this.props.pp} alt="comment pic miss"></img> {this.props.loginname}{" "}
-                          : {comment}
+                          <img
+                            src={this.props.pp}
+                            alt="comment pic miss"
+                          ></img>{" "}
+                          {this.props.loginname} : {comment}
                         </span>
                       </div>
                     );
@@ -365,12 +383,14 @@ class Post extends Component {
                   placeholder="add comments!"
                   value={this.state.newcommentinput}
                   onChange={this.handlenewcommentInput}
-                  onKeyDown={(e)=>{
-                    if(e.key==="Enter"){this.handlenewcomment1(e)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      this.handlenewcomment1(e);
+                    }
                   }}
                 ></input>
               </div>
-              <button class="addcomment" onClick={this.handlenewcomment} >
+              <button class="addcomment" onClick={this.handlenewcomment}>
                 post
               </button>
             </div>
