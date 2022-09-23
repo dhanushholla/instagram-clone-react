@@ -14,7 +14,7 @@
 .dark .postwrapper{
     width: 50vw;
     display: flex;
-    background-color:darkcyan;
+    background-color:#107c8f;
     flex-direction: column;
     /* padding:2rem; */
     margin: 1rem;
@@ -109,7 +109,7 @@
     border-radius: 90%;
     padding: 3px;
     font-size: 18px; 
-    height:70%;  
+    height:100%;  
 }
 .followwrapper button:hover{
     /* border-radius:15px;color:white;background-color:cadetblue;
@@ -232,7 +232,7 @@ audio{
     .dark .postwrapper{
         width: 90vw;
         display: flex;
-        background-color:darkcyan;
+        background-color:#107c8f;
         flex-direction: column;
         /* padding:2rem; */
         margin: 1rem;
@@ -327,7 +327,7 @@ audio{
         border-radius: 90%;
         padding: 3px;
         font-size: 18px; 
-        height:70%;  
+        height:100%;  
     }
     .followwrapper button:hover{
         /* border-radius:15px;color:white;background-color:cadetblue;

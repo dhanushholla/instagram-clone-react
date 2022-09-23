@@ -12,7 +12,21 @@ import { FaUserPlus } from "react-icons/fa";
 import { FaUserMinus } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "antd/dist/antd.css";
+// import './index.css';
+import { Carousel } from "antd";
+import { BsExclamationSquareFill } from "react-icons/bs";
+
+const contentStyle = {
+  height: "160px",
+  color: "#fff",
+  lineHeight: "160px",
+  textAlign: "center",
+  background: "#364d79",
+};
+
 let delcode = 0;
+let res;
 class Post extends Component {
   // handlenewcomment=()=>{
   //   let data=document.getElementById("new-comment").value;
@@ -42,14 +56,13 @@ class Post extends Component {
     this.listRef = ref;
   };
 
-    static getDerivedStateFromProps(props,state){
-      if(props.theme!==state.thememode)
-      {
-        return({thememode:props.theme})
-      }
-      return null;
+  static getDerivedStateFromProps(props, state) {
+    if (props.theme !== state.thememode) {
+      return { thememode: props.theme };
     }
-   // added getDerivedStateFromProps -- initially assign prop to child state var then changes value of prop..thus to reflect changed propvalue to state use this method. toggle theme used here.. yet to find approriate usecase
+    return null;
+  }
+  // added getDerivedStateFromProps -- initially assign prop to child state var then changes value of prop..thus to reflect changed propvalue to state use this method. toggle theme used here.. yet to find approriate usecase
   getSnapshotBeforeUpdate(prevProps, prevState) {
     // Are we adding new items to the list?
     // Capture the scroll position so we can adjust scroll later.
@@ -296,7 +309,7 @@ class Post extends Component {
             )}
           </div>
           {/* <div class="imagewrapper"> */}
-          {this.props.mediatype.includes("image") && (
+          {/* {this.props.mediatype.includes("image") && (
             <img src={this.props.image} alt="pic missing" />
           )}
           {this.props.mediatype.includes("video") && (
@@ -304,7 +317,30 @@ class Post extends Component {
           )}
           {this.props.mediatype.includes("audio") && (
             <audio src={this.props.image} alt="audio missing" controls />
-          )}
+          )} */}
+         
+          <Carousel effect="fade">
+          
+            {
+              this.props.image.map((img,index)=>{
+                if(this.props.mediatype[index].includes("image"))
+                {
+                    return(<img src={img} alt="pic miss" style={contentStyle} />)
+                }
+                else if(this.props.mediatype[index].includes("video"))
+                {
+                  return(<video src={img} alt="vid miss" style={contentStyle} controls />)
+                } 
+                else
+                {
+                  return(<audio src={img} alt="sound miss" style={contentStyle} controls />) 
+                }
+                }
+              )
+            
+            }
+          </Carousel>
+
           {/* </div> */}
 
           <div class="bottomwrapper">

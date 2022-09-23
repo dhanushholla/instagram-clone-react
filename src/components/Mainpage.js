@@ -10,9 +10,9 @@ import { BsMoonStars } from "react-icons/bs";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 let newcaption = "",
-  newimage = "",
+  newimage = [],
   newcomment = [""];
-let mediatype = "";
+let mediatype = [];
 class Mainpage extends Component {
   constructor(props) {
     super(props);
@@ -27,9 +27,9 @@ class Mainpage extends Component {
           username: "Vani",
           caption: "thala vazhlikuthu da thala valikudhae",
           mainimage:
-            "https://c.tenor.com/MuhlnnRpq2wAAAAM/vadivelu-thalavalikudu-da.gif",
+            ["https://c.tenor.com/MuhlnnRpq2wAAAAM/vadivelu-thalavalikudu-da.gif"],
           delselect: 0,
-          mediatype: "image",
+          mediatype: ["image"],
         },
         {
           profilepic:
@@ -37,9 +37,9 @@ class Mainpage extends Component {
           username: "Holla",
           caption: "How do i tell u 😂",
           mainimage:
-            "https://c.tenor.com/_Hj95ZMsq8cAAAAC/how-do-i-tell-you-vadivelu.gif",
+            ["https://c.tenor.com/_Hj95ZMsq8cAAAAC/how-do-i-tell-you-vadivelu.gif"],
           delselect: 0,
-          mediatype: "image",
+          mediatype: ["image"],
         },
         {
           profilepic:
@@ -48,9 +48,9 @@ class Mainpage extends Component {
           caption:
             "inimae instagram na indha design dhaana da nyabagam varum deii 😂🤣",
           mainimage:
-            "https://c.tenor.com/a98TfgzHHc8AAAAM/vadivelu-singamuthu.gif",
+            ["https://c.tenor.com/a98TfgzHHc8AAAAM/vadivelu-singamuthu.gif"],
           delselect: 0,
-          mediatype: "image",
+          mediatype: ["image"],
         },
       ],
     };
@@ -78,9 +78,12 @@ class Mainpage extends Component {
     newcaption = e.target.value;
   };
   handlenewImage = (e) => {
-    mediatype = e.target.files[0].type;
-    console.log("mediatype in mainpage");
-    newimage = URL.createObjectURL(e.target.files[0]);
+    for(let i=0;i<e.target.files.length;i++)
+    {
+       mediatype[i] = e.target.files[i].type;
+       console.log("mediatype in mainpage");
+       newimage[i] = URL.createObjectURL(e.target.files[i]);
+    }
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -130,10 +133,10 @@ class Mainpage extends Component {
       ],
       showform: false,
     });
-    newimage = "";
+    newimage = [];
     newcaption = "";
     newcomment = "";
-    mediatype = "";
+     mediatype = [];
     // window.scrollTo(0, 0);
   };
   render() {
@@ -184,6 +187,7 @@ class Mainpage extends Component {
                     type="file"
                     onChange={this.handlenewImage}
                     accept="image/*,video/*,audio/*"
+                    multiple
                     required
                   ></input>
                 </div>
