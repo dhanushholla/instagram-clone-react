@@ -25,6 +25,17 @@ class Mainpage extends Component {
       postdatas: [
         {
           profilepic:
+            "https://media.istockphoto.com/photos/nothing-is-a-magnet-for-success-like-self-confidence-picture-id1262964459?b=1&k=20&m=1262964459&s=170667a&w=0&h=ksXAqZ43oZWWm9Zdz_4IMLHGCpS9_yR5Tc4zCex2-Ao=",
+          username: "Muthu",
+          caption:
+            "Slider of supported docs",
+          mainimage:
+            ["https://c.tenor.com/q-t915cdRRwAAAAM/memes-vadivelu.gif",demovideo,demoaudio],
+          delselect: 0,
+          mediatype: ["image","video","audio"],
+        },
+        {
+          profilepic:
             "https://images.unsplash.com/photo-1529911194209-8578109840df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGFkeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
           username: "Vani",
           caption: "thala vazhlikuthu da thala valikudhae",
@@ -54,17 +65,7 @@ class Mainpage extends Component {
           delselect: 0,
           mediatype: ["image"],
         },
-        {
-          profilepic:
-            "https://images.unsplash.com/photo-1610276198568-eb6d0ff53e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG90cmFpdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-          username: "Muthu",
-          caption:
-            "Slider of supported docs",
-          mainimage:
-            ["https://c.tenor.com/a98TfgzHHc8AAAAM/vadivelu-singamuthu.gif",demovideo,demoaudio],
-          delselect: 0,
-          mediatype: ["image","video","audio"],
-        },
+       
       ],
     };
   }
