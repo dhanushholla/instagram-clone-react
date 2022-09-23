@@ -9,6 +9,8 @@ import { BsSun } from "react-icons/bs";
 import { BsMoonStars } from "react-icons/bs";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import demovideo from "../assests/dummyvideo.mp4"
+import demoaudio from "../assests/electronic-future-beats-117997.mp3"
 let newcaption = "",
   newimage = [],
   newcomment = [""];
@@ -51,6 +53,17 @@ class Mainpage extends Component {
             ["https://c.tenor.com/a98TfgzHHc8AAAAM/vadivelu-singamuthu.gif"],
           delselect: 0,
           mediatype: ["image"],
+        },
+        {
+          profilepic:
+            "https://images.unsplash.com/photo-1610276198568-eb6d0ff53e48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG90cmFpdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+          username: "Muthu",
+          caption:
+            "Slider of supported docs",
+          mainimage:
+            ["https://c.tenor.com/a98TfgzHHc8AAAAM/vadivelu-singamuthu.gif",demovideo,demoaudio],
+          delselect: 0,
+          mediatype: ["image","video","audio"],
         },
       ],
     };

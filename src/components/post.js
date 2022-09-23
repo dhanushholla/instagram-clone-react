@@ -15,7 +15,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "antd/dist/antd.css";
 // import './index.css';
 import { Carousel } from "antd";
-import { BsExclamationSquareFill } from "react-icons/bs";
 
 const contentStyle = {
   height: "160px",
@@ -318,27 +317,31 @@ class Post extends Component {
           {this.props.mediatype.includes("audio") && (
             <audio src={this.props.image} alt="audio missing" controls />
           )} */}
-         
+
           <Carousel effect="fade">
-          
-            {
-              this.props.image.map((img,index)=>{
-                if(this.props.mediatype[index].includes("image"))
-                {
-                    return(<img src={img} alt="pic miss" style={contentStyle} />)
-                }
-                else if(this.props.mediatype[index].includes("video"))
-                {
-                  return(<video src={img} alt="vid miss" style={contentStyle} controls />)
-                } 
-                else
-                {
-                  return(<audio src={img} alt="sound miss" style={contentStyle} controls />) 
-                }
-                }
-              )
-            
-            }
+            {this.props.image.map((img, index) => {
+              if (this.props.mediatype[index].includes("image")) {
+                return <img src={img} alt="pic miss" style={contentStyle} />;
+              } else if (this.props.mediatype[index].includes("video")) {
+                return (
+                  <video
+                    src={img}
+                    alt="vid miss"
+                    style={contentStyle}
+                    controls
+                  />
+                );
+              } else {
+                return (
+                  <audio
+                    src={img}
+                    alt="sound miss"
+                    style={contentStyle}
+                    controls
+                  />
+                );
+              }
+            })}
           </Carousel>
 
           {/* </div> */}
