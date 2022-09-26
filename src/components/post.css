@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 .light .postwrapper{
-    width: 50vw;
+    width: 30vw;
     display: flex;
     background-color:#e6e6e6;
     flex-direction: column;
@@ -12,7 +12,7 @@
     border-radius: 10px;
 }
 .dark .postwrapper{
-    width: 50vw;
+    width: 30vw;
     display: flex;
     background-color:#107c8f;
     flex-direction: column;

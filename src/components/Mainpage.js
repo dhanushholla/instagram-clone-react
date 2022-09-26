@@ -172,6 +172,8 @@ class Mainpage extends Component {
             <button onClick={this.handleAddpost} className="addpostbtn">
               add post
             </button>
+            
+            <input type="text" placeholder="want to highlight: image|video|audio" onChange={this.filterhandle} className="filterer" maxLength="5" ></input> 
             <span className="themetoggle">
               {this.state.theme==='light'?
               <button onClick={this.themehandle}>
@@ -182,7 +184,6 @@ class Mainpage extends Component {
               </button>
                }
             </span>
-            <input type="text" placeholder="want to highlight: image|video|audio" onChange={this.filterhandle} className="filterer" maxLength="5" ></input> 
             <Link to="/" className="Linkcls"> 
               <button className="logoutbtn">Logout</button>
             </Link>

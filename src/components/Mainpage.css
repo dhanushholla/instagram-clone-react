@@ -125,7 +125,7 @@
     /* border:1px solid #3897f0; */
 }
 .footer-navbar{
-    width:50vw;
+    width:30vw;
     display:flex;
     flex-direction: row;
     justify-content:space-between;
@@ -332,6 +332,6 @@
     .filterer{
         border:2px solid aquamarine;
         border-radius: 10px;
-        width:60%;
+        width:90%;
     }
 }
