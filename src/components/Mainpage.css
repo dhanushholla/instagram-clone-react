@@ -329,4 +329,9 @@
     float:inherit;
     margin:0.5rem;
     }
+    .filterer{
+        border:2px solid aquamarine;
+        border-radius: 10px;
+        width:60%;
+    }
 }
