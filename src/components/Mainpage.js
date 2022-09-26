@@ -22,6 +22,7 @@ class Mainpage extends Component {
     this.state = {
       showform: false,
       theme: "light",
+      filter:"none",
       postdatas: [
         {
           profilepic:
@@ -68,6 +69,11 @@ class Mainpage extends Component {
        
       ],
     };
+  }
+
+  filterhandle=(e)=>{
+    this.setState({filter:e.target.value})
+
   }
 
   themehandle = () => {
@@ -163,7 +169,9 @@ class Mainpage extends Component {
               src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png"
               alt="logo"
             ></img>
-            {/* <input type="text" placeholder="Theme: dark||light" onChange={this.themehandle} className="themetoggle"></input> */}
+            <button onClick={this.handleAddpost} className="addpostbtn">
+              add post
+            </button>
             <span className="themetoggle">
               {this.state.theme==='light'?
               <button onClick={this.themehandle}>
@@ -174,11 +182,8 @@ class Mainpage extends Component {
               </button>
                }
             </span>
-         
-            <button onClick={this.handleAddpost} className="addpostbtn">
-              add post
-            </button>
-            <Link to="/" className="Linkcls">
+            <input type="text" placeholder="want to highlight: image|video|audio" onChange={this.filterhandle} className="filterer" maxLength="5" ></input> 
+            <Link to="/" className="Linkcls"> 
               <button className="logoutbtn">Logout</button>
             </Link>
           </nav>
@@ -228,6 +233,7 @@ class Mainpage extends Component {
                 index={index}
                 mediatype={post.mediatype}
                 theme={this.state.theme}
+                filterinput={this.state.filter}
               ></Post>
             ))}
           </div>

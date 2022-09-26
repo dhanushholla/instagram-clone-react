@@ -162,7 +162,11 @@
     margin:0.5rem;
 
 }
-
+.filterer{
+    border:2px solid aquamarine;
+    border-radius: 10px;
+    width:20%;
+}
 @media screen and (max-device-width:480px){
     .new-form{
         margin-top: 10px;

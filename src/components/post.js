@@ -48,6 +48,7 @@ class Post extends Component {
       showcomment: 0,
       deleteselection: this.props.deleteselect,
       thememode: this.props.theme,
+      filt:this.props.filterinput
     };
   }
 
@@ -56,8 +57,8 @@ class Post extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    if (props.theme !== state.thememode) {
-      return { thememode: props.theme };
+    if (props.theme !== state.thememode || props.filterinput!==state.filt) {
+      return { thememode: props.theme ,filt:props.filterinput};
     }
     return null;
   }
@@ -321,8 +322,25 @@ class Post extends Component {
           <Carousel effect="fade">
             {this.props.image.map((img, index) => {
               if (this.props.mediatype[index].includes("image")) {
+
+                if(this.state.filt.includes("image"))
+                {
+                  return (<img className="highlightedpost" src={img} alt="pic miss" style={contentStyle} />); 
+                }
                 return <img src={img} alt="pic miss" style={contentStyle} />;
+                
               } else if (this.props.mediatype[index].includes("video")) {
+                if(this.state.filt.includes("video"))
+                {
+                  return (
+                    <video className="highlightedpost"
+                      src={img}
+                      alt="vid miss"
+                      style={contentStyle}
+                      controls
+                    />
+                  );
+                } 
                 return (
                   <video
                     src={img}
@@ -332,6 +350,19 @@ class Post extends Component {
                   />
                 );
               } else {
+                if(this.state.filt.includes("audio"))
+                {
+                  return (
+                 
+                    <audio className="highlightedpost"
+                    src={img}
+                    alt="sound miss"
+                    style={contentStyle}
+                    controls
+                  />
+                    
+                  );
+                }  
                 return (
                   <audio
                     src={img}
