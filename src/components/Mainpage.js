@@ -26,9 +26,9 @@ class Mainpage extends Component {
         {
           profilepic:
             "https://media.istockphoto.com/photos/nothing-is-a-magnet-for-success-like-self-confidence-picture-id1262964459?b=1&k=20&m=1262964459&s=170667a&w=0&h=ksXAqZ43oZWWm9Zdz_4IMLHGCpS9_yR5Tc4zCex2-Ao=",
-          username: "Muthu",
+          username: "Hari",
           caption:
-            "Slider of supported docs",
+            "Carousel feed",
           mainimage:
             ["https://c.tenor.com/q-t915cdRRwAAAAM/memes-vadivelu.gif",demovideo,demoaudio],
           delselect: 0,
