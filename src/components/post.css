@@ -217,7 +217,7 @@ audio{
 }
 .highlightedpost{
     object-fit: contain;
-    border:20px solid orange;
+    border:10px solid orange;
     border-image: linear-gradient(45deg, red,orange)1;
 }
 
