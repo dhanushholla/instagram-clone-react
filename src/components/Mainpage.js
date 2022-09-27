@@ -31,9 +31,9 @@ class Mainpage extends Component {
           caption:
             "Carousel feed",
           mainimage:
-            ["https://c.tenor.com/q-t915cdRRwAAAAM/memes-vadivelu.gif",demovideo,demoaudio],
+            [demovideo,"https://c.tenor.com/q-t915cdRRwAAAAM/memes-vadivelu.gif",demoaudio],
           delselect: 0,
-          mediatype: ["image","video","audio"],
+          mediatype: ["video","image","audio"],
         },
         {
           profilepic:
