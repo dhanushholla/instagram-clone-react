@@ -25,7 +25,7 @@ const contentStyle = {
 };
 
 let delcode = 0;
-let res;
+
 class Post extends Component {
   // handlenewcomment=()=>{
   //   let data=document.getElementById("new-comment").value;

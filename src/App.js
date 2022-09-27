@@ -1,9 +1,8 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import FormPage from "./components/Formpage";
-import Post from "./components/post";
 import React, { Component } from "react";
-import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import {  Routes, Route,  Navigate } from "react-router-dom";
 import Mainpage from "./components/Mainpage";
 
 class App extends Component {
