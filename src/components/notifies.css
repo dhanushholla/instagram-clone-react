@@ -1,0 +1,31 @@
+.ant-list {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum', "tnum";
+    position: relative;
+    width: 400px;
+    text-align: left;
+}
+@media screen and (max-device-width:480px){
+    .ant-list {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        color: rgba(0, 0, 0, 0.85);
+        font-size: 14px;
+        font-variant: tabular-nums;
+        line-height: 1.5715;
+        list-style: none;
+        font-feature-settings: 'tnum', "tnum";
+        position: relative;
+        width: 60%;
+        text-align: left;
+    }
+    
+}

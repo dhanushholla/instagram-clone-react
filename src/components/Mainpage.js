@@ -11,6 +11,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import demovideo from "../assests/dummyvideo.mp4"
 import demoaudio from "../assests/electronic-future-beats-117997.mp3"
+
 let newcaption = "",
   newimage = [],
   newcomment = [""];
@@ -163,6 +164,7 @@ class Mainpage extends Component {
     // console.log("postdatas value in mainpage state",this.state.postdatas)
     return (
       <React.Fragment>
+      
         <div className="result">
           <nav className="navbar">
             <img
@@ -172,7 +174,6 @@ class Mainpage extends Component {
             <button onClick={this.handleAddpost} className="addpostbtn">
               add post
             </button>
-            
             <input type="text" placeholder="want to highlight: image|video|audio" onChange={this.filterhandle} className="filterer" maxLength="5" ></input> 
             <span className="themetoggle">
               {this.state.theme==='light'?
@@ -188,6 +189,7 @@ class Mainpage extends Component {
               <button className="logoutbtn">Logout</button>
             </Link>
           </nav>
+        
           {this.state.showform && (
             <div className="new-form">
               <form>
@@ -240,10 +242,10 @@ class Mainpage extends Component {
           </div>
           <ToastContainer />
           <nav className="footer-navbar">
-            <FaHome size="1.5rem"></FaHome>
-            <FaSearch size="1.5rem"></FaSearch>
+          <Link to="/feed"><FaHome size="1.5rem"></FaHome></Link>
+          <Link to="/imgs" color="black"> <FaSearch size="1.5rem"></FaSearch></Link> 
             <BiMoviePlay size="1.5rem"></BiMoviePlay>
-            <FaRegHeart size="1.5rem"></FaRegHeart>
+          <Link to="/notifies" color="black"><FaRegHeart size="1.5rem"></FaRegHeart></Link> 
             <img
               src={this.props.profile}
               className="navbar-profile"

@@ -4,7 +4,8 @@ import FormPage from "./components/Formpage";
 import React, { Component } from "react";
 import {  Routes, Route,  Navigate } from "react-router-dom";
 import Mainpage from "./components/Mainpage";
-
+import ImgList from "./components/imagelist"
+import Notifies from "./components/notifies";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -62,7 +63,14 @@ class App extends Component {
                   />
                 }
               ></Route>
+              
             )}
+             {this.state.isloggedin && (
+            <Route path="/imgs" element={<ImgList/>}/>
+             )}
+              {this.state.isloggedin && (
+            <Route path="/notifies" element={<Notifies/>}/>
+             )}
             <Route
               path="*"
               element={<Navigate to="/" replace></Navigate>}
